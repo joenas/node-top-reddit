@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 COPY ["package.json", "yarn.lock", "./"]
 RUN yarn install --silent --frozen-lockfile
 
-COPY ["Procfile","CHECKS", "./"]
+COPY ["Procfile", "./"]
 COPY ["src/", "./src"]
 
 EXPOSE 5000
