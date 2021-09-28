@@ -1,0 +1,8 @@
+{
+  "name": "Top Reddit",
+  "description": "Fetch top scored posts from Reddit and emit",
+  "keywords": ["dokku", "node", "reddit"],
+  "scripts": {
+    "dokku": {}
+  }
+}

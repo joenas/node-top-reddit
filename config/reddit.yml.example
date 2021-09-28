@@ -1,0 +1,6 @@
+---
+- name: 'worldnews'
+  url: 'https://www.reddit.com/r/worldnews.json?limit=1'
+  minCount: 15
+  webhookUrl: 'https://example.com'
+  displayName: WorldNews

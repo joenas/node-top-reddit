@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ./.env
+
+  redis:
+    image: microbox/redis:2.8.17
+    ports:
+      - 6379:6379
+    volumes:
+      - /tmp/redis:/data
