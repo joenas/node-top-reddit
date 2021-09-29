@@ -2,7 +2,14 @@ const redis = require('redis');
 const logger = require('./logger')('redis');
 
 module.exports = async () => {
-  const client = redis.createClient({ url: process.env.REDIS_URL });
+  /**
+   * Remove username because our combination of redis and node-redis
+   * doesn't support it. https://stackoverflow.com/a/67617609
+   */
+
+  const { protocol, password, host } = new URL(process.env.REDIS_URL);
+  const parsedUrl = `${protocol}//:${password}@${host}`;
+  const client = redis.createClient({ url: parsedUrl });
 
   client.on('error', (err) => {
     logger.error(err);
