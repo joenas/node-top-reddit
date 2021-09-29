@@ -7,7 +7,7 @@ const fetchFeeds = require('./fetch-feeds');
 // Feeds
 // eslint-disable-next-line no-new
 new CronJob(
-  '*/15 7-23 * * *',
+  '*/15 * * * *',
   // '*/1 * * * *',
   async function () {
     logger.info("Triggering 'Fetch feeds'");
