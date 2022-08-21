@@ -9,7 +9,7 @@ const fetchFeeds = require('./fetch-feeds');
 new CronJob(
   '*/15 * * * *',
   // '*/1 * * * *',
-  async function () {
+  async () => {
     logger.info("Triggering 'Fetch feeds'");
     await fetchFeeds();
     const url = process.env.PING_URL_CRON;

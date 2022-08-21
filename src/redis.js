@@ -17,11 +17,7 @@ module.exports = async () => {
   await client.connect();
 
   return {
-    exists: async (key, value) => {
-      return client.SISMEMBER(key, value);
-    },
-    add: async (key, value) => {
-      return client.SADD(key, value);
-    },
+    exists: async (key, value) => client.SISMEMBER(key, value),
+    add: async (key, value) => client.SADD(key, value),
   };
 };
