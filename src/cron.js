@@ -15,7 +15,9 @@ new CronJob(
     const url = process.env.PING_URL_CRON;
     if (url) await fetch(url);
   },
-  null,
-  true,
+  null, // onComplete
+  true, // start
   process.env.TZ,
+  null, // context
+  false, // RunOnInit
 );
