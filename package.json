@@ -12,25 +12,25 @@
     "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:eslint:fix": "eslint --ignore-path .gitignore --fix .",
     "lint": "npm run lint:eslint -- . ",
-    "build:arm": "./build.sh"
+    "docker:build": "./build.sh"
   },
   "keywords": [],
   "dependencies": {
-    "cron": "^2.1.0",
-    "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.7",
-    "pino": "^6.7.0",
-    "redis": "^4.0.0-rc.2",
-    "yaml": "^2.0.0-8"
+    "cron": "^2.4.4",
+    "dotenv": "^8.6.0",
+    "node-fetch": "^2.7.0",
+    "pino": "^6.14.0",
+    "redis": "^4.7.1",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
-    "eslint": "^8.22.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.19",
-    "pino-pretty": "^4.3.0",
-    "prettier": "^2.0.5"
+    "eslint-config-prettier": "^8.10.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^4.2.5",
+    "nodemon": "^3.1.14",
+    "pino-pretty": "^4.8.0",
+    "prettier": "^2.8.8"
   }
 }
