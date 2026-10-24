@@ -26,16 +26,20 @@ const fetchFeeds = async () => {
   const cache = await redis();
   const configs = YAML.parse(fs.readFileSync('./config/reddit.yml', 'utf8'));
 
-  configs.forEach(async (conf) => {
-    const { name, url, minCount, displayName, webhookUrl } = conf;
-    const posts = await matchingPosts(url, minCount);
-    posts.forEach(async (post) => {
-      const exists = await cache.exists(name, post.url);
-      if (exists) return;
-      await cache.add(name, post.url);
-      await postWebhook(webhookUrl, displayName, post);
-    });
-  });
+  await Promise.all(
+    configs.map(async (conf) => {
+      const { name, url, minCount, displayName, webhookUrl } = conf;
+      const posts = await matchingPosts(url, minCount);
+      await Promise.all(
+        posts.map(async (post) => {
+          const exists = await cache.exists(name, post.url);
+          if (exists) return;
+          await cache.add(name, post.url);
+          await postWebhook(webhookUrl, displayName, post);
+        }),
+      );
+    }),
+  );
 };
 
 module.exports = fetchFeeds;

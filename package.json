@@ -12,7 +12,8 @@
     "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:eslint:fix": "eslint --ignore-path .gitignore --fix .",
     "lint": "npm run lint:eslint -- . ",
-    "docker:build": "./build.sh"
+    "docker:build": "./build.sh",
+    "cli": "node src/cli.js"
   },
   "keywords": [],
   "dependencies": {
