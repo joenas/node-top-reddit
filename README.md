@@ -4,6 +4,8 @@ Fetch Reddit feeds, pick posts matching your desired amount of upvotes, filter o
 
 All the jobs will currently run at a 15 minute interval.
 
+> **Note:** Reddit now blocks anonymous requests to its `.json` endpoints (403 "Blocked"), so this branch no longer works as-is. API access requires approval under Reddit's [Responsible Builder Policy](https://support.reddithelp.com/hc/en-us/articles/42728983564564-Responsible-Builder-Policy). Support for authenticating with an approved Reddit app (OAuth client credentials) is on the [`reddit-oauth`](https://github.com/joenas/node-top-reddit/tree/reddit-oauth) branch.
+
 ## Getting started
 
 ### Install dependencies
@@ -43,7 +45,7 @@ yarn dev
 
 ### Docker
 
-To test the Dockerfile you need to build the image. Also make sure the database is up (`docker-compose up -d`)
+To test the Dockerfile you need to build the image. Also make sure the database is up (`docker compose up -d`)
 
 ```bash
 docker build -t top-reddit .
