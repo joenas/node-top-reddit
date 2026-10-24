@@ -1,7 +1,7 @@
-FROM node:14-slim
+FROM node:24-slim
 RUN mkdir -p /app
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 ENV NODE_ENV=production
 
 COPY ["package.json", "yarn.lock", "./"]
