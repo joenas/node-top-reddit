@@ -30,7 +30,7 @@ const request = (url, options = {}) => {
   }
   return fetch(uri, {
     ...options,
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', ...options.headers },
   })
     .then(checkStatus)
     .then(parseJSON);

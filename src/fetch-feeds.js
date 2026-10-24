@@ -1,11 +1,11 @@
 const fs = require('fs');
 const YAML = require('yaml');
-const request = require('./request');
+const reddit = require('./reddit');
 const redis = require('./redis');
 const webhook = require('./webhook');
 
 const matchingPosts = async (url, minCount) => {
-  const res = await request(url);
+  const res = await reddit.get(url);
   const posts = res.data.children;
   return posts.filter((p) => p.data.score >= minCount).map((p) => p.data);
 };

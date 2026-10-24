@@ -19,6 +19,8 @@ cp .env.example .env
 # edit file
 ```
 
+Reddit blocks anonymous requests, so you need API credentials. API access requires approval first (see Reddit's [Responsible Builder Policy](https://support.reddithelp.com/hc/en-us/articles/42728983564564-Responsible-Builder-Policy)). Once approved, create a "script" app at https://www.reddit.com/prefs/apps and put its client ID (shown under the app name) and secret in `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET`.
+
 ### Configuration
 
 ```yaml
@@ -56,6 +58,8 @@ docker run --rm \
     -e NODE_ENV=development \
     -e TZ=Europe/Stockholm \
     -e REDIS_URL=redis://localhost:6379 \
+    -e REDDIT_CLIENT_ID=... \
+    -e REDDIT_CLIENT_SECRET=... \
     top-reddit
 ```
 
